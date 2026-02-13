@@ -1,112 +1,111 @@
 # 🚀 Easy-RealESRGAN-Image-Upscaler
 
-[![Open In Kaggle](https://img.shields.io/badge/Open%20in-Kaggle-blue?logo=kaggle)](https://www.kaggle.com/)
+[![Open In Kaggle](https://img.shields.io/badge/Open%20in-Kaggle-blue?logo=kaggle)](https://www.kaggle.com/code/pyrisforge/easy-realesrgan-image-upscaler)
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![Real-ESRGAN](https://img.shields.io/badge/Real--ESRGAN-v0.3.0-brightgreen)](https://github.com/xinntao/Real-ESRGAN)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Proyek ini menyediakan antarmuka sederhana untuk melakukan **upscaling gambar** menggunakan **Real-ESRGAN** di lingkungan Kaggle. Dengan berbagai pilihan kualitas, model, dan faktor pembesaran, Anda dapat meningkatkan resolusi gambar umum maupun anime dengan hasil yang memuaskan.
 
+---
+
 ## ✨ Fitur Utama
 
-- **3 tingkat kualitas**: `ultra`, `high`, `balanced`, `fast` – dari kualitas terbaik hingga paling cepat.
-- **2 mode gambar**: `general` (foto/umum) dan `anime` (ilustrasi/animasi).
-- **Faktor pembesaran**: 2x atau 4x.
-- **Upload**: dukungan untuk gambar tunggal maupun banyak gambar dalam folder.
-- **Face enhancement** (khusus mode `ultra`): memperbaiki detail wajah menggunakan GFPGAN.
-- **Automatis men-download model** yang diperlukan dan memverifikasi integritasnya.
-- **Kompatibel dengan Python 3.12+** (patch otomatis untuk masalah `rgb_to_grayscale`).
+* **4 Tingkat Kualitas**: Tersedia opsi `ultra`, `high`, `balanced`, dan `fast` untuk menyesuaikan antara kecepatan dan detail hasil.
+* **2 Mode Gambar**: Mendukung mode `general` untuk foto/umum dan `anime` untuk ilustrasi/animasi.
+* **Faktor Pembesaran**: Pilihan skala perbesaran 2x atau 4x.
+* **Manajemen Data**: Dukungan upload gambar tunggal maupun banyak gambar sekaligus melalui interface interaktif.
+* **Face Enhancement**: Perbaikan detail wajah secara otomatis menggunakan integrasi GFPGAN pada mode kualitas tertinggi.
+* **Otomasi Model**: Sistem otomatis mengunduh model yang diperlukan dan memverifikasi integritas file sebelum dijalankan.
+* **Kompatibilitas Modern**: Sudah menyertakan patch otomatis untuk berjalan mulus di Python 3.12+.
+
+---
 
 ## 📋 Daftar Isi
 
 - [Persyaratan Sistem](#persyaratan-sistem)
 - [Instalasi & Persiapan](#instalasi--persiapan)
 - [Struktur Kode](#struktur-kode)
-- [Penggunaan](#penggunaan)
-  - [Upscale Gambar Tunggal](#upscale-gambar-tunggal)
-  - [Upscale Banyak Gambar (Batch)](#upscale-banyak-gambar-batch)
 - [Penjelasan Parameter](#penjelasan-parameter)
-  - [image_type (Mode Gambar)](#image_type-mode-gambar)
-  - [scale (Faktor Pembesaran)](#scale-faktor-pembesaran)
-  - [quality (Tingkat Kualitas)](#quality-tingkat-kualitas)
-- [Contoh Lengkap](#contoh-lengkap)
 - [Mengatasi Masalah Umum](#mengatasi-masalah-umum)
-- [Referensi](#referensi)
-- [Kontribusi](#kontribusi)
-- [Lisensi](#lisensi)
+- [☕ Support Me](#-support-me)
+- [📚 Referensi](#-referensi)
+- [⚖️ Lisensi](#-lisensi)
+
+---
 
 ## 💻 Persyaratan Sistem
 
-- **Kaggle Notebook** dengan akses GPU (disarankan GPU P100 atau T4).
-- **Internet** aktif untuk mengunduh model (hanya sekali).
-- **RAM/VRAM** yang cukup (untuk gambar besar, gunakan mode dengan `tile`).
+* **Kaggle Notebook**: Wajib menggunakan lingkungan Kaggle dengan akses GPU aktif (P100 atau T4).
+* **Koneksi Internet**: Diperlukan untuk mengunduh model dan dependensi pada saat inisialisasi awal.
+* **Alokasi VRAM**: Untuk gambar beresolusi sangat besar, disarankan menggunakan mode kualitas dengan mekanisme `tile`.
+
+---
 
 ## ⚙️ Instalasi & Persiapan
 
-Jalankan seluruh sel di notebook secara berurutan. Bagian pertama akan:
+Proses persiapan dilakukan secara otomatis melalui sel-sel notebook yang mencakup:
+1. **Repository Cloning**: Mengambil source code resmi Real-ESRGAN.
+2. **Dependency Install**: Pemasangan paket `basicsr`, `gfpgan`, `facexlib`, dan pustaka pendukung lainnya.
+3. **Compatibility Patch**: Perbaikan otomatis pada library BasicSR agar kompatibel dengan versi Python terbaru.
+4. **Model Verification**: Pengunduhan bobot model (weights) secara otomatis ke folder yang ditentukan.
 
-1. Meng-clone repository Real-ESRGAN.
-2. Menginstal dependensi (`basicsr`, `gfpgan`, `facexlib`, dll).
-3. Menerapkan patch kompatibilitas Python 3.12+.
-4. Mengunduh model-model yang diperlukan dengan verifikasi ukuran.
-
-Setelah proses instalasi selesai, Anda akan melihat pesan **✅ SEMUA MODEL WAJIB BERHASIL DIUNDUH!** jika semuanya berjalan lancar.
+---
 
 ## 📁 Struktur Kode
 
-- **`QualityConfig`** – kelas konfigurasi yang menyimpan daftar model dan preset kualitas.
-- **`RealESRGANUpscaler`** – kelas utama untuk mengatur proses upscaling.
-- **`upscale_single`** – fungsi pembantu untuk memproses satu gambar.
-- **`upscale_batch`** – fungsi pembantu untuk memproses banyak gambar dalam folder.
-- **Bagian eksekusi** – contoh pemanggilan fungsi dengan parameter pilihan.
+Proyek ini dirancang secara modular agar mudah dipelajari atau dikembangkan kembali:
+* **`QualityConfig`**: Kelas sentral yang menyimpan preset konfigurasi, daftar model, dan ukuran tile untuk setiap tingkat kualitas.
+* **`RealESRGANUpscaler`**: Engine utama yang menangani inisialisasi model, pemrosesan gambar, dan penanganan memori GPU.
+* **`Data Manager Interface`**: Komponen UI interaktif menggunakan `ipywidgets` untuk memudahkan pengguna mengelola file input tanpa menyentuh kode.
+* **Visualisasi**: Sistem perbandingan berdampingan (side-by-side) untuk melihat perbedaan sebelum dan sesudah proses upscale.
 
-## 🛠️ Penggunaan
-
-### Upscale Gambar Tunggal
-
-```python
-result = upscale_single(
-    image_path='/path/to/image.jpg',
-    image_type='general',   # atau 'anime'
-    scale=4,                # 2 atau 4
-    quality='high',         # 'ultra', 'high', 'balanced', 'fast'
-    output_name='hasil'     # (opsional) nama file output
-)
-print(f"Hasil tersimpan di: {result}")
-```
-
-### Upscale Banyak Gambar
-
-```python
-results = upscale_batch(
-    input_folder='/path/to/folder',   # folder berisi gambar
-    image_type='anime',
-    scale=4,
-    quality='balanced',
-    output_folder='/path/to/output'   # (opsional) folder tujuan
-)
-print(f"{len(results)} gambar berhasil diproses.")
-```
+---
 
 ## 📌 Penjelasan Parameter
-soon
 
-## 🌟 Contoh Lengkap
-soon
+| Parameter | Opsi | Deskripsi |
+| :--- | :--- | :--- |
+| **image_type** | `general`, `anime` | Tentukan kategori gambar untuk hasil optimal (mode `anime` menjaga garis tetap halus). |
+| **scale** | `2`, `4` | Target perbesaran resolusi dari ukuran asli. |
+| **quality** | `ultra`, `high`, `balanced`, `fast` | Mengatur keseimbangan antara detail tekstur, perbaikan wajah, dan kecepatan proses. |
+
+---
 
 ## ⚠️ Mengatasi Masalah Umum
-soon
+
+* **`[Errno 2] No such file or directory`**: Pastikan Anda telah mengunggah gambar di bagian Data Manager atau memasukkan path dataset Kaggle dengan benar.
+* **Out of Memory (OOM)**: Jika GPU kehabisan memori saat memproses gambar besar, coba turunkan tingkat kualitas ke `balanced` atau `fast`.
+* **Proses Terhenti**: Pastikan sesi Kaggle Anda memiliki koneksi internet dan GPU Accelerator sudah dinyalakan pada menu *Settings* notebook.
+
+---
+
+## ☕ Support Me
+
+Dukungan Anda sangat berarti untuk membantu keberlanjutan riset teknologi dan pengembangan project kreatif lainnya di masa depan.
+
+| Platform | Link Dukungan |
+| :--- | :--- |
+| **Trakteer** | [trakteer.id/pyforge](https://trakteer.id/pyforge) |
+| **Saweria** | [saweria.co/pyforge](https://saweria.co/pyforge) |
+| **SociaBuzz** | [sociabuzz.com/pyforge](https://sociabuzz.com/pyforge) |
+| **PayPal** | [paypal.me/Masyura](https://www.paypal.com/paypalme/Masyura) |
+
+---
 
 ## 📚 Referensi
-soon
 
-## 🤝 Kontribusi
+* **Real-ESRGAN Core**: [xinntao/Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)
+* **Face Restoration**: [TencentARC/GFPGAN](https://github.com/TencentARC/GFPGAN)
+* **Framework**: [XPixelGroup/BasicSR](https://github.com/XPixelGroup/BasicSR)
 
-Kontribusi sangat diterima! Jika Anda menemukan bug atau memiliki saran fitur, silakan buka issue atau kirim pull request. Pastikan untuk mengikuti pedoman kontribusi yang berlaku.
+---
 
-## 📄 Lisensi
+## ⚖️ Lisensi
 
-Proyek ini dilisensikan di bawah MIT License – lihat file LICENSE untuk detail lebih lanjut.
+Project ini dilisensikan di bawah **MIT License**. Anda bebas menggunakan, mengubah, dan mendistribusikan kode ini untuk keperluan pribadi maupun komersial.
 
-<hr>
+Copyright (c) 2026 **PyForge**
 
-Dibuat dengan ❤️ untuk komunitas Kaggle dan open source.
+---
+Dibuat dengan ❤️ oleh **PyForge** – Full Stack Programmer & Creative Content Creator.
