@@ -23,11 +23,11 @@ Proyek ini menyediakan antarmuka sederhana untuk melakukan **upscaling gambar** 
 
 ## 📋 Daftar Isi
 
-- [Persyaratan Sistem](#persyaratan-sistem)
-- [Instalasi & Persiapan](#instalasi--persiapan)
-- [Struktur Kode](#struktur-kode)
-- [Penjelasan Parameter](#penjelasan-parameter)
-- [Mengatasi Masalah Umum](#mengatasi-masalah-umum)
+- [💻 Persyaratan Sistem](#-persyaratan-sistem)
+- [⚙️ Instalasi & Persiapan](#-instalasi--persiapan)
+- [📁 Struktur Kode](#-struktur-kode)
+- [📌 Penjelasan Parameter](#-penjelasan-parameter)
+- [⚠️ Mengatasi Masalah Umum](#-mengatasi-masalah-umum)
 - [☕ Support Me](#-support-me)
 - [📚 Referensi](#-referensi)
 - [⚖️ Lisensi](#-lisensi)
