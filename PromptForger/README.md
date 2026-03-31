@@ -129,3 +129,27 @@ Setiap batch akan menghasilkan folder:
   - BatchPrompt_1x1_TIMESTAMP.txt
   - BatchPrompt_9x16_TIMESTAMP.txt
   - Batch_YYYYMMDD_HHMMSS.zip
+
+---
+
+## ☕ Support Me
+
+Dukungan Anda sangat berarti untuk membantu keberlanjutan riset teknologi dan pengembangan project kreatif lainnya di masa depan.
+
+| Platform | Link Dukungan |
+| :--- | :--- |
+| **Trakteer** | [trakteer.id/pyforge](https://trakteer.id/pyforge) |
+| **Saweria** | [saweria.co/pyforge](https://saweria.co/pyforge) |
+| **SociaBuzz** | [sociabuzz.com/pyforge](https://sociabuzz.com/pyforge) |
+| **PayPal** | [paypal.me/Masyura](https://www.paypal.com/paypalme/Masyura) |
+
+---
+
+## ⚖️ Lisensi
+
+Project ini dilisensikan di bawah **MIT License**. Anda bebas menggunakan, mengubah, dan mendistribusikan kode ini untuk keperluan pribadi maupun komersial.
+
+Copyright (c) 2026 **PyForge**
+
+---
+Dibuat dengan ❤️ oleh **PyForge** – Full Stack Programmer & Creative Content Creator.
