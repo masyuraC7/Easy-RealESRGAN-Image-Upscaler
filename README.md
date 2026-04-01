@@ -1,6 +1,8 @@
 # 🚀 Easy-RealESRGAN-Image-Upscaler
 
-[![Open In Kaggle](https://img.shields.io/badge/Open%20in-Kaggle-blue?logo=kaggle)](https://www.kaggle.com/code/pyrisforge/easy-realesrgan-image-upscaler)
+<a href="https://www.kaggle.com/code/pyrisforge/easy-realesrgan-image-upscaler" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Open%20in-Kaggle-blue?logo=kaggle" alt="Open In Kaggle" />
+</a>
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![Real-ESRGAN](https://img.shields.io/badge/Real--ESRGAN-v0.3.0-brightgreen)](https://github.com/xinntao/Real-ESRGAN)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

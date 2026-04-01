@@ -1,6 +1,8 @@
 # 🖼️ ImageForge - PNG to JPG Converter
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PjLz6x7v4LYImHYauHyOzTcTPXDsBuMV?usp=sharing)
+<a href="https://colab.research.google.com/drive/1PjLz6x7v4LYImHYauHyOzTcTPXDsBuMV?usp=sharing" target="_blank" rel="noopener noreferrer">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" />
+</a>
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Version](https://img.shields.io/badge/version-v1.0-green)
