@@ -149,7 +149,7 @@ Dukungan Anda sangat berarti untuk membantu keberlanjutan riset teknologi dan pe
 
 Project ini dilisensikan di bawah **MIT License**. Anda bebas menggunakan, mengubah, dan mendistribusikan kode ini untuk keperluan pribadi maupun komersial.
 
-Copyright (c) 2026 **PyForge**
+Copyright (c) 2026 **masyuraC7**
 
 ---
-Dibuat dengan ❤️ oleh **PyForge** – Full Stack Programmer & Creative Content Creator.
+Dibuat dengan ❤️ oleh **masyuraC7** – Full Stack Programmer & Creative Content Creator.
